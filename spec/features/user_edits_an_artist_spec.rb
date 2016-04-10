@@ -7,15 +7,17 @@ RSpec.feature "User edits an artist" do
   artist = Artist.create(name: artist_name,
                 image_path: artist_image_path)
 
+
+
   visit artist_path(artist)
 
   click_on "Edit Artist"
-
   fill_in "artist_name", with: updated_name
   fill_in "artist_image_path", with: artist_image_path
-  click_on "Edit"
 
-  expect(page).to have_content updated_name
+  click_on "Update Artist"
+
+   expect(page).to have_content updated_name
    expect(page).to_not have_content artist.name
    expect(page).to have_css("img[src=\"#{artist.image_path}\"]")
   end

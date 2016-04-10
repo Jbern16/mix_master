@@ -11,7 +11,7 @@ RSpec.feature "User edits a playlist" do
   click_on "Edit Playlist"
   fill_in  "playlist_name", with: "New Name"
   check("song-#{song_two.id}")
-  click_on "Edit Playlist"
+  click_on "Update Playlist"
 
   expect(page). to have_content "New Name"
   end
